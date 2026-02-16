@@ -1,0 +1,219 @@
+{
+  "id" : "sql_Automationstabreg_Databricks_SQLFailed_i_am_a_failure_buddy",
+  "metainfo" : {
+    "label" : "sql_Automationstabreg_Databricks_SQLFailed_i_am_a_failure_buddy",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "sql_Automationstabreg_Databricks_SQLFailed_i_am_a_failure_buddy##hyKmTntE" : {
+      "id" : "sql_Automationstabreg_Databricks_SQLFailed_i_am_a_failure_buddy##hyKmTntE",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "sql_Automationstabreg_Databricks_SQLFailed_i_am_a_failure_buddy",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM qa_failure_fields\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "EYIDi5DX",
+          "slug" : "qa_failure_fields"
+        } ],
+        "outputs" : [ {
+          "id" : "b0YKlOSX",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "OBdumMNIafWeIFHA4Z374" : {
+      "id" : "OBdumMNIafWeIFHA4Z374",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "qa_failure_seed",
+        "slug" : "qa_failure_seed",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "qa_failure_seed",
+          "sourceType" : "Seed",
+          "sourceName" : "",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "OCeEv9NrpSLWj2zmLEbhF",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "2UrOrDiBkWhHQCiSEPaeW$$id-Ka4qeTzqsLRlphySdK" : {
+      "id" : "2UrOrDiBkWhHQCiSEPaeW$$id-Ka4qeTzqsLRlphySdK",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "qa_failure_data",
+        "slug" : "qa_failure_data",
+        "x" : 20,
+        "y" : 420,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Retrieves all quality assurance failure records for review.",
+        "autoUpdateComment" : true,
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "select * from qa_failure_seed"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "f5pNlOFyniIP23Aph_txh$$fO9qQCxFHyMv4FhamfAoo",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "c_int",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_bignumeric",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_string",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_float64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "c_bool",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "qa_failure_seed"
+        } ],
+        "outputs" : [ {
+          "id" : "d7EtI2W9HqNMPi-tH_xQC$$OFJ9vDIm1LZ2IkFZ0twes",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "a",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "b",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      }
+    },
+    "VEN47D1pM8s6nNcF0n1FL$$qDGGF5v_zN8iV_NwKOgCp" : {
+      "id" : "VEN47D1pM8s6nNcF0n1FL$$qDGGF5v_zN8iV_NwKOgCp",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "qa_failure_fields",
+        "slug" : "qa_failure_fields",
+        "x" : -420,
+        "y" : 140,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Selects specific fields from quality assurance failure data for further review.",
+        "autoUpdateComment" : true,
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "LuKbIyxDx20sbg9F--Uwj$$Qz6OpPGJsgd24wQ-vr1sy##a", "LuKbIyxDx20sbg9F--Uwj$$Qz6OpPGJsgd24wQ-vr1sy##b" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "a"
+          },
+          "alias" : "a",
+          "_row_id" : "644154122"
+        }, {
+          "expression" : {
+            "expression" : "b"
+          },
+          "alias" : "b",
+          "_row_id" : "1734238760"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "LuKbIyxDx20sbg9F--Uwj$$Qz6OpPGJsgd24wQ-vr1sy",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "vUGQzuvCgbRUYWr8fqyfJ$$Wd6hxSQ7f8pjj0rYx-3bI",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "yu07g4JFnFRh1MHDtno1E",
+    "source" : "OBdumMNIafWeIFHA4Z374",
+    "sourcePort" : "OCeEv9NrpSLWj2zmLEbhF",
+    "target" : "2UrOrDiBkWhHQCiSEPaeW$$id-Ka4qeTzqsLRlphySdK",
+    "targetPort" : "f5pNlOFyniIP23Aph_txh$$fO9qQCxFHyMv4FhamfAoo"
+  }, {
+    "id" : "xOqfGRJ2ifQHHaJSEynan",
+    "source" : "2UrOrDiBkWhHQCiSEPaeW$$id-Ka4qeTzqsLRlphySdK",
+    "sourcePort" : "d7EtI2W9HqNMPi-tH_xQC$$OFJ9vDIm1LZ2IkFZ0twes",
+    "target" : "VEN47D1pM8s6nNcF0n1FL$$qDGGF5v_zN8iV_NwKOgCp",
+    "targetPort" : "LuKbIyxDx20sbg9F--Uwj$$Qz6OpPGJsgd24wQ-vr1sy"
+  }, {
+    "id" : "IaQqa7xK4pdO_2Z7pmglW",
+    "source" : "VEN47D1pM8s6nNcF0n1FL$$qDGGF5v_zN8iV_NwKOgCp",
+    "sourcePort" : "vUGQzuvCgbRUYWr8fqyfJ$$Wd6hxSQ7f8pjj0rYx-3bI",
+    "target" : "sql_Automationstabreg_Databricks_SQLFailed_i_am_a_failure_buddy##hyKmTntE",
+    "targetPort" : "EYIDi5DX"
+  } ],
+  "component" : "Model"
+}
